@@ -9,6 +9,7 @@
 #import "SEGFileStorage.h"
 #import "SEGCrypto.h"
 
+NSString *const AnalyticsInvalidJSON = @"analyticsSegmentAirtimeInvalidJSON";
 
 @interface SEGFileStorage ()
 
@@ -193,7 +194,13 @@
     if (json == nil) {
         return nil;
     }
-    
+
+    if (![NSJSONSerialization isValidJSONObject:json]) {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:AnalyticsInvalidJSON object:nil userInfo:json];
+        return nil;
+    }
+
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:0 error:&error];
     if (error) {

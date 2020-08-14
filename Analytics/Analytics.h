@@ -10,6 +10,7 @@
 
 //! Project version number for Analytics.
 FOUNDATION_EXPORT double AnalyticsVersionNumber;
+FOUNDATION_EXPORT NSString * _Nonnull const AnalyticsInvalidJSON;
 
 //! Project version string for Analytics.
 FOUNDATION_EXPORT const unsigned char AnalyticsVersionString[];

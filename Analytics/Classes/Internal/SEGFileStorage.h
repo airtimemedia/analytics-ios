@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "SEGStorage.h"
 
-
 @interface SEGFileStorage : NSObject <SEGStorage>
 
 @property (nonatomic, strong, nullable) id<SEGCrypto> crypto;
